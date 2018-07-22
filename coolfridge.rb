@@ -45,10 +45,10 @@ begin
   public_id = initial_response['public_id']
   front_url = initial_response["url"].sub(/upload.*/,'upload')
    
-  ne_preset = "e_sharpen,e_improve,e_auto_contrast,q_auto,$rows_2,$cols_2,$hIndex_0,$vIndex_0,$tilewidth_iw_div_$cols,$tileheight_ih_div_$rows/w_$tilewidth,h_$tileheight,c_crop,x_$tilewidth_mul_$hIndex,y_$tileheight_mul_$vIndex"
-  nw_preset = "e_sharpen,e_improve,e_auto_contrast,q_auto,$rows_2,$cols_2,$hIndex_1,$vIndex_0,$tilewidth_iw_div_$cols,$tileheight_ih_div_$rows/w_$tilewidth,h_$tileheight,c_crop,x_$tilewidth_mul_$hIndex,y_$tileheight_mul_$vIndex"
-  se_preset = "e_sharpen,e_improve,e_auto_contrast,q_auto,$rows_2,$cols_2,$hIndex_0,$vIndex_1,$tilewidth_iw_div_$cols,$tileheight_ih_div_$rows/w_$tilewidth,h_$tileheight,c_crop,x_$tilewidth_mul_$hIndex,y_$tileheight_mul_$vIndex"
-  sw_preset = "e_sharpen,e_improve,e_auto_contrast,q_auto,$rows_2,$cols_2,$hIndex_1,$vIndex_1,$tilewidth_iw_div_$cols,$tileheight_ih_div_$rows/w_$tilewidth,h_$tileheight,c_crop,x_$tilewidth_mul_$hIndex,y_$tileheight_mul_$vIndex"
+  ne_preset = "t_ne"
+  nw_preset = "t_nw"
+  se_preset = "t_se"
+  sw_preset = "t_sw"
    
   cropped_image_responses = []
   [ne_preset, nw_preset, se_preset, sw_preset].each do |preset|
