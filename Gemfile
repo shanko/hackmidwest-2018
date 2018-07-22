@@ -9,4 +9,4 @@ gem 'sinatra-cors', '~> 1.1'
 
 gem 'cloudinary'
 gem 'dotenv'
-
+gem 'twilio-ruby'

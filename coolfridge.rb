@@ -8,6 +8,8 @@ require 'cloudinary'
 require 'cloudinary/uploader'
 require 'cloudinary/utils'
 
+require 'twilio-ruby'
+
 require 'pp'
 
 set :bind, '0.0.0.0'
@@ -25,6 +27,13 @@ end
 
 get '/photo' do
 begin
+  ## pp [ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'], ENV['TWILIO_FROM_PHONE'], ENV['TWILIO_TO_PHONE']]
+  client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
+  message = client.messages.create(
+                              from: ENV['TWILIO_FROM_PHONE'],
+                              body: "This is what's in your fridge as of #{Time.now.to_s} :)",
+                              to:   ENV['TWILIO_TO_PHONE']
+                            )
 
   if Cloudinary.config.api_key.blank?
       require_relative './config'
