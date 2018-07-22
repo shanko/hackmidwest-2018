@@ -25,6 +25,11 @@ end
 
 get '/photo' do
 begin
+
+  if Cloudinary.config.api_key.blank?
+      require_relative './config'
+  end
+
   ne_preset = "t_ne"
   nw_preset = "t_nw"
   se_preset = "t_se"
