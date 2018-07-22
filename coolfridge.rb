@@ -35,9 +35,10 @@ begin
   se_preset = "t_se"
   sw_preset = "t_sw"
    
-  cropped_image_responses = []
+  cropped_image_responses = [{id: 'msts_hmw_fridge_contents', url: 'https://res.cloudinary.com/msts-smartfridge/image/upload/msts_hmw_fridge_contents.jpg', name: 'full_image', score: 1.0, timestamp: Time.now.to_s}]
+
   [ne_preset, nw_preset, se_preset, sw_preset].each do |preset|
-    new_url = "http://res.cloudinary.com/msts-smartfridge/image/upload/#{preset}/msts_hmw_fridge_contents.jpg"
+    new_url = "https://res.cloudinary.com/msts-smartfridge/image/upload/#{preset}/msts_hmw_fridge_contents.jpg"
     resp = Cloudinary::Uploader.upload(new_url, :tags => "basic_sample", :categorization => "aws_rek_tagging")
     data = resp["info"]["categorization"]["aws_rek_tagging"]["data"].first
     cropped_image_responses << {id: resp['public_id'], url: resp['url'], name: data['tag'], score: data['confidence'], timestamp: Time.now.to_s}
