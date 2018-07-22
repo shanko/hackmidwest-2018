@@ -1,0 +1,5 @@
+/vendor
+public/*.jpg
+/log
+/.bundle
+.env
