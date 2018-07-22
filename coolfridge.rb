@@ -35,7 +35,12 @@ begin
   se_preset = "t_se"
   sw_preset = "t_sw"
    
-  cropped_image_responses = [{id: 'msts_hmw_fridge_contents', url: 'https://res.cloudinary.com/msts-smartfridge/image/upload/msts_hmw_fridge_contents.jpg', name: 'full_image', score: 1.0, timestamp: Time.now.to_s}]
+  version = "v#{rand(1000_000)}"
+  cropped_image_responses = [{
+      id:   'msts_hmw_fridge_contents',
+      url:  "https://res.cloudinary.com/msts-smartfridge/image/upload/#{version}/msts_hmw_fridge_contents.jpg",
+      name: 'full_image', score: 1.0, timestamp: Time.now.to_s
+    }]
 
   [ne_preset, nw_preset, se_preset, sw_preset].each do |preset|
     version = "v#{rand(1000_000)}"
