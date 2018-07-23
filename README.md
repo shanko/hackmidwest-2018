@@ -1,6 +1,6 @@
 # hackmidwest 2018
 
-This project was submitted as an entry in the [Hack Midwest 2018](https://hackmidwest.com/) competition in KC. It was awarded the first prize for "Best Use of Cloudinary API".
+This project was submitted as an entry in the [Hack Midwest 2018](https://hackmidwest.com/) competition in KC. It was awarded a prize for "Best Use of Cloudinary API".
 
 ## What's in my fridge?
 - Command the web enabled camera to "Take A Picture" of the items in the fridge

@@ -27,13 +27,6 @@ end
 
 get '/photo' do
 begin
-  ## pp [ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'], ENV['TWILIO_FROM_PHONE'], ENV['TWILIO_TO_PHONE']]
-  client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
-  message = client.messages.create(
-                              from: ENV['TWILIO_FROM_PHONE'],
-                              body: "This is what's in your fridge as of #{Time.now.to_s} :)",
-                              to:   ENV['TWILIO_TO_PHONE']
-                            )
 
   if Cloudinary.config.api_key.blank?
       require_relative './config'
@@ -50,14 +43,25 @@ begin
       url:  "https://res.cloudinary.com/msts-smartfridge/image/upload/#{version}/msts_hmw_fridge_contents.jpg",
       name: 'full_image', score: 1.0, timestamp: Time.now.to_s
     }]
-
+  names = []
   [ne_preset, nw_preset, se_preset, sw_preset].each do |preset|
     version = "v#{rand(1000_000)}"
     new_url = "https://res.cloudinary.com/msts-smartfridge/image/upload/#{preset}/#{version}/msts_hmw_fridge_contents.jpg"
     resp = Cloudinary::Uploader.upload(new_url, :tags => "basic_sample", :categorization => "aws_rek_tagging")
     data = resp["info"]["categorization"]["aws_rek_tagging"]["data"].first
     cropped_image_responses << {id: resp['public_id'], url: resp['url'], name: data['tag'], score: data['confidence'], timestamp: Time.now.to_s}
+    names << data['tag']
   end
+  ## pp names.join(',')
+
+  ## pp [ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'], ENV['TWILIO_FROM_PHONE'], ENV['TWILIO_TO_PHONE']]
+  client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
+  message = client.messages.create(
+                              from: ENV['TWILIO_FROM_PHONE'],
+                              body: "This is what's in your fridge as of #{Time.now.to_s}: #{names.join(',')}",
+                              to:   ENV['TWILIO_TO_PHONE']
+                            )
+
   # puts "Cloudinary replied for #{img}..." + Time.now.to_s
   output = cropped_image_responses
 rescue
