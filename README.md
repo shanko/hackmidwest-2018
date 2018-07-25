@@ -38,6 +38,8 @@ This project was submitted as an entry in the [Hack Midwest 2018](https://hackmi
 - Install the Camera Pi inside the fridge so that it points to the items in the Fridge
 - Ensure there is a light source in the fridge before closing it's door
 - Repeat the process of testing by commanding the Voice Pi to take the picture again
+- Install the ionic framework and execute the code in the "client" directory ( $ cd client; npm install; ionic serve )
+- Point the Browser URL to http://localhost:8100/
 
 ## Trouble Shooting tips:
 - Ensure that the Pi's IP addresses are correct
