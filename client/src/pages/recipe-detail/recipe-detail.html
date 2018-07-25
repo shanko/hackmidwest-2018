@@ -1,0 +1,37 @@
+<!--
+  Generated template for the RecipeDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ recipe?.recipe.label }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row align-items-center justify-content-center padding>
+    <img class="recipe-img" [src]="recipe?.recipe.image">
+  </ion-row>
+
+  <div padding>
+    <ion-row class="recipe-name" align-items-center justify-content-center>
+      {{ recipe?.recipe.label }}
+    </ion-row>
+    <ion-row class="recipe-source" align-items-center justify-content-center>
+      {{ recipe?.recipe.source }}
+    </ion-row>
+  </div>
+
+
+  <div padding-top>
+    <ion-row *ngFor="let line of recipe?.recipe.ingredientLines" class="ing-line" align-items-center justify-content-center>
+      {{line}}
+    </ion-row>
+  </div>
+
+</ion-content>

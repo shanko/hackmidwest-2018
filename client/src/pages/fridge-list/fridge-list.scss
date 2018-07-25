@@ -1,0 +1,21 @@
+page-fridge-list {
+
+  .item-avatar-img{
+    border-radius: 15% !important;
+    height:80px !important;
+    width:80px !important;
+  }
+  .item-name{
+    font-weight: 500;
+    font-size: 1.6em;
+    text-transform: capitalize;
+  }
+  .item-days{
+    font-size: 1.25em;
+    font-weight: 400;
+  }
+  .snap-button{
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+}

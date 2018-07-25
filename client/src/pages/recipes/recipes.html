@@ -1,0 +1,30 @@
+<!--
+  Generated template for the RecipesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>FridgeBot</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button class="recipe-button" margin-vertical ion-button block (click)="getRecipesForAll(item)" >All Foods</button>
+  <button class="recipe-button" margin-vertical ion-button block (click)="getRecipesForExp(item)" >Expiring Soon</button>
+  <ion-list>
+    <ion-item *ngFor="let r of savedRecipes" (click)="recipeSelected(r)">
+      <p>recipe</p>
+      <ion-avatar item-start>
+        <img class="item-avatar-img" [src]="r.image_url">
+      </ion-avatar>
+      <h2 class="item-name">{{ r.title}}s</h2>
+      <p>{{ r.publisher }}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

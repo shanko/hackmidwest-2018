@@ -1,0 +1,42 @@
+@import "../../theme/variables";
+page-item-detail {
+
+  ion-title{
+    text-transform: capitalize !important;
+  }
+
+  .item-img{
+    width:65vw;
+    height:60vw;
+    border-radius: 5px;
+    box-shadow: #cdcdcd 12px 12px 12px;
+      }
+  .item-header{
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 2.6em !important;
+    text-transform: capitalize;
+    .item-name{
+
+    }
+    .item-days{
+      color: $primary;
+      font-weight: 500;
+      font-size: 1.75em;
+    }
+  }
+
+  .nutrition-item{
+    background-color: white;
+    padding: 0 8px;
+    border-bottom: 1px solid #ebebeb;
+    font-size: 1.6em;
+    font-weight: 400;
+  }
+  .nutrition-value{
+    color:gray;
+  }
+  .recipe-button{
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+}

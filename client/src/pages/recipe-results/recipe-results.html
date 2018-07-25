@@ -1,0 +1,26 @@
+<!--
+  Generated template for the RecipeResultsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>recipe-results</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let r of recipes" (click)="recipeSelected(r)">
+      <ion-avatar item-start>
+        <img class="recipe-avatar-img" [src]="r.recipe.image">
+      </ion-avatar>
+      <h2 class="recipe-name">{{r.recipe.label}}</h2>
+      <p class="recipe-source">{{r.recipe.source}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

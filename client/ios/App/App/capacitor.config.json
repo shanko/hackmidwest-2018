@@ -1,0 +1,6 @@
+{
+  "appId": "com.smartFridge.app",
+  "appName": "smartFridge",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

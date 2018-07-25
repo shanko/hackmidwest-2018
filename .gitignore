@@ -3,3 +3,4 @@ public/*.jpg
 /log
 /.bundle
 .env
+.idea
